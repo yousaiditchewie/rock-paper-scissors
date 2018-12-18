@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Rock Paper Scissors</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=VT323"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+
+  <body onload="startGame()">
+    <h1 class="center-text">Rock, Paper, Scissors...</h1>
+    <h4 class="center-text">
+      A game of patience. A game of discipline. A game of Emoji's.
+    </h4>
+    <div id="message-board" class="border center-text"></div>
+    <div id="game-board" class="border">
+      <div id="computer">
+        <div class="center-text">Computer</div>
+        <img id="computer-img" valign="center" src="" />
+      </div>
+      <div id="player-1">
+        <div class="center-text">Player 1</div>
+        <img
+          data-play="rock"
+          id="rock"
+          class="rotate"
+          src="assets/rock.png"
+          alt="Rock"
+          onclick="play(this)"
+        />
+        <img
+          data-play="paper"
+          id="paper"
+          class="rotate"
+          src="assets/paper.png"
+          alt="Paper"
+          onclick="play(this)"
+        />
+        <img
+          data-play="scissors"
+          id="scissors"
+          class="rotate"
+          src="assets/scissors.png"
+          alt="Scissors"
+          onclick="play(this)"
+        />
+      </div>
+    </div>
+    <div id="score-board"></div>
+    <div id="reset-button" class="border center-text" onclick="startGame()">
+      RESET
+    </div>
+    <script src="js/main.js"></script>
+  </body>
+</html>
