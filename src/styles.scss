@@ -1,0 +1,197 @@
+$font-family: 'VT323', monospace;
+$background-primary-color: #282828;
+$background-secondary-color: #646464;
+$text-primary-color: #00ff00;
+$text-secondary-color: #e0e0e0;
+$shadow: 1px 4px 8px rgba(0, 0, 0, 0.75);
+$radius-strong: 6px;
+$radius-soft: 3px;
+$rock-url: url('./dist/assets/rock.png');
+$paper-url: url('./dist/assets/paper.png');
+$scissors-url: url('./dist/assets/scissors.png');
+
+* {
+  transition: all 0.25s;
+}
+body {
+  font-family: $font-family;
+  background-color: $background-primary-color;
+  color: $text-primary-color;
+  text-shadow: $shadow;
+  transition: all 0.25s;
+}
+h1 {
+  font-size: 2.5rem;
+  width: 100%;
+  margin: 15px 0;
+}
+h4 {
+  font-size: 1.75rem;
+  width: 100%;
+  margin: 15px 0 30px 0;
+}
+// helper classes
+.center-text {
+  text-align: center;
+}
+.border {
+  border: 2px solid $text-primary-color;
+}
+.text-primary {
+  color: $text-primary-color;
+}
+.text-secondary {
+  color: $text-secondary-color;
+}
+// section classes
+#message-board {
+  background-color: $background-secondary-color;
+  font-size: 1.5rem;
+  width: 300px;
+  margin: 0 auto;
+  padding: 20px;
+}
+#game-board {
+  width: 500px;
+  height: 500px;
+  margin: 20px auto;
+  background-color: #000000;
+}
+#computer,
+#player-1 {
+  display: block;
+  width: calc(50% - 1px);
+  height: 100%;
+  div {
+    margin-top: 10px;
+    font-size: 1.25rem;
+  }
+}
+#computer {
+  float: left;
+  border-right: 1px solid $text-primary-color;
+}
+#player-1 {
+  float: right;
+  border-left: 1px solid $text-primary-color;
+}
+#computer img {
+  display: block;
+  margin: 50% auto 0 auto;
+  &:hover {
+    cursor: pointer;
+  }
+}
+#player-1 img {
+  display: block;
+  height: 150px;
+  margin: 10px auto;
+  &.rotate {
+    transform: rotate(270deg);
+  }
+  &:hover {
+    cursor: pointer;
+  }
+}
+#player-1 #rock {
+  height: 135px;
+}
+table {
+  width: 250px;
+  margin: 0 auto;
+  font-size: 1.25rem;
+}
+td {
+  padding: 3px;
+  text-align: left;
+  &:last-child {
+    text-align: center;
+  }
+}
+#reset-button {
+  width: 100px;
+  padding: 10px;
+  background-color: $background-secondary-color;
+  font-size: 1.75rem;
+  margin: 15px auto;
+  transition: all 0.25s;
+  &:hover {
+    cursor: pointer;
+    background-color: $text-secondary-color;
+  }
+}
+#overlay {
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+  background-color: #000000;
+  opacity: 0.65;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+}
+#message-overlay {
+  z-index: 9999999;
+  position: fixed;
+  display: block;
+  width: 350px;
+  height: 200px;
+  top: 40%;
+  left: calc(50% - 175px);
+  background-color: #000000;
+}
+.hide-this {
+  opacity: 0;
+}
+@media only screen and (max-width: 500px) {
+  h1 {
+    font-size: 2rem;
+  }
+  h4 {
+    font-size: 1.5rem;
+  }
+  #message-board {
+    padding: 10px;
+  }
+  #game-board {
+    width: 90%;
+    height: 50vh;
+    margin-top: 9%;
+  }
+  #computer,
+  #player-1 {
+    div {
+      font-size: 2rem;
+    }
+    #computer-img {
+      height: 30%;
+      width: auto;
+      margin-top: 50%;
+    }
+  }
+  #player-1 div {
+    margin-bottom: 17%;
+  }
+  #player-1 {
+    img {
+      height: 25%;
+    }
+    #rock {
+      height: 21%;
+    }
+  }
+  #reset-button {
+    margin-top: 9%;
+  }
+}
+@media only screen and (max-width: 360px) {
+  h4 {
+    margin: 15px 0;
+  }
+  #reset-button {
+    margin-top: 8%;
+  }
+}

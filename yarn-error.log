@@ -1,0 +1,32 @@
+Arguments: 
+  /usr/local/bin/node /usr/local/Cellar/yarn/1.12.3/libexec/bin/yarn.js add webpack
+
+PATH: 
+  /Users/jacob.allen/.rvm/gems/ruby-2.2.2/bin:/Users/jacob.allen/.rvm/gems/ruby-2.2.2@global/bin:/Users/jacob.allen/.rvm/rubies/ruby-2.2.2/bin:/usr/local/bin:/usr/local/sbin:/Users/jacob.allen/.composer/vendor/bin:./vendor/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/jacob.allen/.rvm/bin:/Users/jacob.allen/.rvm/bin
+
+Yarn version: 
+  1.12.3
+
+Node version: 
+  8.12.0
+
+Platform: 
+  darwin x64
+
+Trace: 
+  SyntaxError: /Users/jacob.allen/Code/rock-paper-scissors/package.json: Unexpected end of JSON input
+      at JSON.parse (<anonymous>)
+      at /usr/local/Cellar/yarn/1.12.3/libexec/lib/cli.js:1631:59
+      at Generator.next (<anonymous>)
+      at step (/usr/local/Cellar/yarn/1.12.3/libexec/lib/cli.js:304:30)
+      at /usr/local/Cellar/yarn/1.12.3/libexec/lib/cli.js:315:13
+      at <anonymous>
+
+npm manifest: 
+  
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
