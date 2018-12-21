@@ -1,7 +1,6 @@
 // **** DATA MODEL ****
-
 let messages = [
-  'Choose your play...',
+  'Choose your a hand to play...',
   'Tie game. Play again...',
   'You Win!!!',
   'You lose...'
@@ -13,6 +12,8 @@ let imageUrls = [
   './assets/paper.png',
   './assets/scissors.png'
 ];
+
+let plays = { rock: 1, paper: 2, scissors: 3 };
 
 let game = {
   isWon: false,
@@ -26,10 +27,6 @@ let game = {
   winner: undefined,
   tie: false
 };
-
-let rock = 1;
-let paper = 2;
-let scissors = 3;
 
 function startGame() {
   game.isWon = false;
@@ -49,19 +46,22 @@ function startGame() {
 // **** GAME LOGIC ****
 function evaluateWinner(player1Play, player2Play) {
   game.tie = false;
+
   if (player1Play === player2Play) {
     return tieGame();
-  } else if (
-    (player1Play === rock && player2Play === paper) ||
-    (player1Play === paper && player2Play === scissors) ||
-    (player1Play === scissors && player2Play === rock)
+  }
+
+  if (
+    (player1Play === plays.rock && player2Play === plays.paper) ||
+    (player1Play === plays.paper && player2Play === plays.scissors) ||
+    (player1Play === plays.scissors && player2Play === plays.rock)
   ) {
     game.player2Score++;
     return (game.winner = game.player2);
-  } else {
-    game.player1Score++;
-    return (game.winner = game.player1);
   }
+
+  game.player1Score++;
+  return (game.winner = game.player1);
 }
 
 function tieGame() {
@@ -86,7 +86,7 @@ function checkGameIsOver() {
 
 function play(hand) {
   let playWord = hand.id;
-  let playNumber = eval(hand.id);
+  let playNumber = plays[hand.id];
   let computerPlay = generateComputerPlay();
   hideHands(playWord);
   showComputerPlay(computerPlay);
@@ -98,11 +98,13 @@ function play(hand) {
 function updateMessage() {
   if (game.tie) {
     return (game.message = messages[1]);
-  } else if (game.winner === game.player1) {
-    return (game.message = messages[2]);
-  } else {
-    return (game.message = messages[3]);
   }
+
+  if (game.winner === game.player1) {
+    return (game.message = messages[2]);
+  }
+
+  return (game.message = messages[3]);
 }
 
 function showComputerPlay(computerPlay) {
@@ -110,17 +112,21 @@ function showComputerPlay(computerPlay) {
 }
 
 function hideHands(playedHand) {
-  console.log(playedHand);
   if (playedHand === 'rock') {
     paperEl.classList.add('hide-this');
     scissorsEl.classList.add('hide-this');
-  } else if (playedHand === 'paper') {
+    return;
+  }
+
+  if (playedHand === 'paper') {
     rockEl.classList.add('hide-this');
     scissorsEl.classList.add('hide-this');
-  } else {
-    rockEl.classList.add('hide-this');
-    paperEl.classList.add('hide-this');
+    return;
   }
+
+  rockEl.classList.add('hide-this');
+  paperEl.classList.add('hide-this');
+  return;
 }
 
 function showAllHands() {
@@ -148,3 +154,5 @@ function render() {
   messageBoard.innerHTML = game.message;
   computerImg.src = game.computerImgUrl;
 }
+
+document.addEventListener('DOMContentLoaded', startGame);

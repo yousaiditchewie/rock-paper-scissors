@@ -1,1 +1,1 @@
-# rock-paper-scissors
+# Front End Training Final Project
